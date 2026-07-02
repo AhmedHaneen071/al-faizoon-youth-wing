@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react'
 import { en } from '@/data/translations/en'
 import { ur } from '@/data/translations/ur'
+import { ContentRepositoryService } from '@/services/ContentRepositoryService'
 
 export type Language = 'en' | 'ur'
 
@@ -35,6 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang)
     localStorage.setItem('lang', lang)
+    ContentRepositoryService.getInstance().setLanguage(lang)
   }, [])
 
   useEffect(() => {

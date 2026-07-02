@@ -324,4 +324,230 @@ export const en = {
     english: 'English',
     urdu: 'Urdu',
   },
+  data: {
+    pillars: {
+      '1': {
+        name: 'Amanat',
+        description: 'Trustworthiness and responsibility in all our actions. We uphold the trust placed in us by Allah, our community, and each other, ensuring integrity in every endeavor.',
+        summary: 'Upholding trust and responsibility in all actions.',
+      },
+      '2': {
+        name: 'Sadaqat',
+        description: 'Truthfulness in word and deed. We commit to honesty and transparency, reflecting the highest standard of character in our communications and relationships.',
+        summary: 'Commitment to truthfulness and transparency.',
+      },
+      '3': {
+        name: 'Diyanat',
+        description: 'Honesty and moral integrity in all dealings. Our conduct is guided by Islamic ethics, fostering a culture of righteousness and accountability.',
+        summary: 'Moral integrity guided by Islamic ethics.',
+      },
+      '4': {
+        name: "Sama'at",
+        description: "Attentiveness and deep listening. We value every voice, practice active listening, and remain receptive to guidance, feedback, and the needs of our community.",
+        summary: 'Active listening and receptiveness to community needs.',
+      },
+      '5': {
+        name: "Ita'at",
+        description: 'Obedience to Allah and commitment to righteous leadership. We respect authority aligned with Islamic principles and dedicate ourselves to disciplined service.',
+        summary: 'Obedience to Allah and disciplined service.',
+      },
+    },
+    features: {
+      '1': {
+        title: 'Dawah & Islamic Character Building',
+        description: 'We nurture faith through engaging Dawah initiatives and structured character development programs rooted in Quranic teachings and authentic Sunnah.',
+      },
+      '2': {
+        title: 'Community Service & Problem-Solving',
+        description: 'From health camps to neighborhood clean-ups, we identify local challenges and mobilize youth to create tangible, positive change across Hyderabad.',
+      },
+      '3': {
+        title: 'Youth Mentorship & Empowerment',
+        description: 'Our mentorship framework pairs experienced guides with young members, fostering leadership, confidence, and a deep sense of purpose and responsibility.',
+      },
+    },
+    testimonials: {
+      '1': {
+        name: 'Omar Farooq',
+        role: 'Youth Member',
+        quote: 'Al-Faizoon transformed my perspective on faith and community. The mentorship programs helped me develop leadership skills I never knew I had. I am proud to be part of this triumphant youth movement.',
+      },
+      '2': {
+        name: 'Mrs. Kulsoom Ahmed',
+        role: 'Parent',
+        quote: 'As a parent, I have seen remarkable growth in my son since he joined Al-Faizoon. The organization provides a safe, nurturing environment rooted in Islamic values that shapes responsible young adults.',
+      },
+      '3': {
+        name: 'Dr. Rashid Mahmood',
+        role: 'Community Partner',
+        quote: 'Al-Faizoon Youth Wing is a shining example of what organized youth can achieve. Their community service initiatives have made measurable impacts across Hyderabad. An honor to collaborate with them.',
+      },
+      '4': {
+        name: 'Hina Tariq',
+        role: 'Volunteer',
+        quote: 'Volunteering with Al-Faizoon has been an incredibly rewarding experience. The sense of purpose and brotherhood/sisterhood is unmatched. Every event teaches something new about service and faith.',
+      },
+      '5': {
+        name: 'Bilal Ahmed Sheikh',
+        role: 'Youth Member',
+        quote: "The 5 Pillars framework at Al-Faizoon isn't just theory\u2014it's practiced daily. I've learned what it truly means to be Amanat (trustworthy) and Sadaqat (truthful) in real-life situations.",
+      },
+      '6': {
+        name: 'Prof. Saima Rafiq',
+        role: 'Community Partner',
+        quote: "The dedication of Al-Faizoon youth is remarkable. Their neighborhood programs have brought positive change, and their approach to blending Islamic character with community service is truly unique.",
+      },
+    },
+    members: {
+      '1': {
+        name: 'Muhammad Ahmed',
+        role: 'Chairman',
+        shortBio: 'A passionate youth leader dedicated to Islamic outreach and community development. With over 8 years of volunteer experience, Muhammad leads strategic initiatives that empower young Muslims in Hyderabad.',
+      },
+      '2': {
+        name: 'Fatima Hasan',
+        role: 'Vice Chairman',
+        shortBio: 'A dynamic community organizer focused on social welfare projects. Fatima has led numerous clean-up drives, health camps, and educational programs across Hyderabad neighborhoods.',
+      },
+      '3': {
+        name: 'Abdullah Khan',
+        role: 'General Secretary',
+        shortBio: 'An energetic coordinator who ensures smooth operations across all youth wing activities. Abdullah specializes in event management and youth engagement strategies.',
+      },
+      '4': {
+        name: 'Ayesha Siddiqui',
+        role: 'Finance Secretary',
+        shortBio: 'A meticulous financial manager ensuring transparent and responsible use of community resources. Ayesha brings professional accounting expertise to the youth wing.',
+      },
+      '5': {
+        name: 'Hassan Raza',
+        role: 'Media Lead',
+        shortBio: "A creative content producer managing the youth wing's digital presence. Hassan creates impactful social media content that amplifies the organization's mission and activities.",
+      },
+      '6': {
+        name: 'Zainab Ali',
+        role: 'Event Coordinator',
+        shortBio: 'A passionate organizer who brings energy and creativity to every event. Zainab excels at designing engaging programs that inspire youth participation.',
+      },
+    },
+    blogPosts: {
+      '1': {
+        title: 'The Power of Youth in Islamic Dawah',
+        excerpt: 'Discover how young Muslims are leading the charge in sharing the beauty of Islam through compassion, digital media, and community engagement.',
+        author: 'Muhammad Ahmed',
+      },
+      '2': {
+        title: '5 Ways Community Service Strengthens Your Faith',
+        excerpt: "Community service isn't just about helping others\u2014it's a profound act of worship that deepens your connection with Allah and your community.",
+        author: 'Fatima Hasan',
+      },
+      '3': {
+        title: 'Al-Faizoon Youth Wing: A Year of Impact',
+        excerpt: "Looking back at a transformative year of growth, service, and brotherhood. From clean-up drives to study circles, here's what we achieved together.",
+        author: 'Abdullah Khan',
+      },
+      '4': {
+        title: 'Building Character: The 5 Pillars Framework',
+        excerpt: "An in-depth exploration of how Amanat, Sadaqat, Diyanat, Sama'at, and Ita'at shape the character of triumphant youth.",
+        author: 'Ayesha Siddiqui',
+      },
+      '5': {
+        title: 'Upcoming: Youth Leadership Summit 2026',
+        excerpt: 'Announcing our flagship event of the year\u2014a summit designed to equip young Muslims with the tools to lead with faith, integrity, and purpose.',
+        author: 'Hassan Raza',
+      },
+    },
+    socialMediaPosts: {
+      '1': {
+        title: 'Ayat of the Day: Trust in Allah',
+        description: 'Beautiful calligraphy of Quranic verses reminding youth to place their trust in Allah while taking action for positive change.',
+        tags: ['Quran', 'Tawakkul', 'Faith'],
+      },
+      '2': {
+        title: 'Community Clean-Up: Before & After',
+        description: "A powerful side-by-side visual showcasing the dramatic transformation of a local park after our youth volunteers' dedicated clean-up effort.",
+        tags: ['Community', 'Service', 'Cleanliness'],
+      },
+      '3': {
+        title: 'Youth Workshop Registration Now Open!',
+        description: 'Eye-catching announcement graphic for our upcoming Youth Leadership Workshop with speaker lineup, date, and registration QR code.',
+        tags: ['Workshop', 'Leadership', 'Registration'],
+      },
+      '4': {
+        title: 'Hadith of the Week: Kindness',
+        description: "An elegantly designed card featuring the Prophet's (PBUH) teachings on kindness, with reflection prompts for youth.",
+        tags: ['Hadith', 'Kindness', 'Character'],
+      },
+      '5': {
+        title: 'Health Camp Reaches 300+ Patients',
+        description: 'Infographic summarizing the impact of our recent free health camp including number of patients treated, medicines distributed, and volunteer hours.',
+        tags: ['Health', 'Community', 'Impact'],
+      },
+    },
+    workflowSteps: {
+      brainstorm: {
+        title: 'Brainstorming',
+        description: 'Youth members submit content ideas aligned with our mission and current community needs.',
+      },
+      align: {
+        title: 'Aligning with Pillars',
+        description: 'Ideas are mapped to the 5 core pillars to ensure consistency with our values and character framework.',
+      },
+      brand: {
+        title: 'Applying Brand Colors',
+        description: 'Content is designed using our established brand palette, typography, and visual identity guidelines.',
+      },
+      approve: {
+        title: 'Approval Workflow',
+        description: 'Final content is reviewed by leadership for accuracy, appropriateness, and alignment before publication.',
+      },
+    },
+    categories: {
+      testimonial: {
+        member: 'Youth Member',
+        parent: 'Parent',
+        partner: 'Community Partner',
+        volunteer: 'Volunteer',
+      },
+      socialMedia: {
+        inspirational: 'Inspirational Quotes (Quran & Hadith)',
+        impact: 'Community Impact Highlights',
+        event: 'Event Announcements',
+      },
+      blog: {
+        inspiration: 'Inspiration',
+        community: 'Community',
+        events: 'Events',
+        education: 'Education',
+        dawah: 'Dawah',
+      },
+    },
+    events: {
+      '1': {
+        title: 'Youth Leadership Workshop',
+        description: 'An intensive workshop designed to build leadership skills grounded in Islamic principles. Covers public speaking, team management, and community organizing.',
+        location: 'Hyderabad Youth Center',
+      },
+      '2': {
+        title: 'Community Clean-Up Drive',
+        description: 'A neighborhood beautification initiative where volunteers come together to clean and green public spaces in Hyderabad.',
+        location: 'Latifabad, Hyderabad',
+      },
+      '3': {
+        title: 'Dawah Awareness Session',
+        description: 'An open session focused on sharing the beauty of Islam with the broader community through compassionate dialogue and Q&A.',
+        location: 'Al-Faizoon Markaz, Hyderabad',
+      },
+      '4': {
+        title: 'Free Health & Medical Camp',
+        description: 'In partnership with local healthcare professionals, providing free basic health checkups, medicines, and health awareness to underserved communities.',
+        location: 'Qasimabad, Hyderabad',
+      },
+      '5': {
+        title: 'Quran & Hadith Study Circle',
+        description: 'A weekly gathering for youth to deepen their understanding of Quranic teachings and authentic Hadith in a interactive, engaging environment.',
+        location: 'Al-Faizoon Youth Center',
+      },
+    },
+  },
 }

@@ -28,7 +28,7 @@ export function SocialMediaDesign() {
             <StaggerItem key={post.id}>
               <div className="bg-white rounded-2xl border border-border p-6 hover:shadow-md transition-shadow">
                 <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${post.getCategoryBadge()} mb-3`}>
-                  {post.getCategoryLabel()}
+                  {t(`data.categories.socialMedia.${post.category}`)}
                 </span>
                 <h3 className="font-display font-bold text-lg text-text-primary mb-2">{post.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-3">{post.description}</p>

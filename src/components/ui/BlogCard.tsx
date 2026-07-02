@@ -24,7 +24,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
           <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${post.getCategoryBadge()}`}>
-            {post.getCategoryLabel()}
+            {t(`data.categories.blog.${post.category}`)}
           </span>
             <span className="text-xs text-text-muted">{post.readTime} {t('blogCard.minRead')}</span>
         </div>

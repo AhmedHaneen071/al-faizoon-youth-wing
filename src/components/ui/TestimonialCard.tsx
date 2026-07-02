@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Testimonial } from '@/models/Testimonial'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface TestimonialCardProps {
   testimonial: Testimonial
@@ -7,6 +8,7 @@ interface TestimonialCardProps {
 }
 
 export function TestimonialCard({ testimonial, featured = false }: TestimonialCardProps) {
+  const { t } = useLanguage()
   if (featured) {
     return (
       <motion.div
@@ -41,7 +43,7 @@ export function TestimonialCard({ testimonial, featured = false }: TestimonialCa
       transition={{ duration: 0.4 }}
     >
       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${testimonial.getCategoryColor()} mb-3`}>
-        {testimonial.getCategoryLabel()}
+        {t(`data.categories.testimonial.${testimonial.category}`)}
       </span>
       <p className="text-text-secondary leading-relaxed mb-4 italic">
         &ldquo;{testimonial.quote}&rdquo;
