@@ -54,7 +54,7 @@ export function SocialMediaDesign() {
           {steps.map((step, i) => (
             <FadeIn key={step.id} delay={i * 0.1}>
               <div className="relative bg-white rounded-2xl border border-border p-6 text-center">
-                <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center font-display font-bold text-sm">
+                <div className="social-badge absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center font-display font-bold text-sm">
                   {step.order}
                 </div>
                 <div className={`w-12 h-12 rounded-xl ${step.getIconBg()} flex items-center justify-center mx-auto mb-3`}>

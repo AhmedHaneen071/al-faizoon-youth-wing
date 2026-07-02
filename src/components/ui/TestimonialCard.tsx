@@ -18,7 +18,7 @@ export function TestimonialCard({ testimonial, featured = false }: TestimonialCa
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <svg className="absolute top-4 right-4 w-16 h-16 text-white/5" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="testimonial-quote absolute top-4 right-4 w-16 h-16 text-white/5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
         </svg>
         <div className="relative z-10">

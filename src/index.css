@@ -92,9 +92,8 @@ body {
 [dir="rtl"] .md\:pr-12 { padding-left: 3rem; padding-right: 0; }
 [dir="rtl"] .md\:pl-12 { padding-right: 3rem; padding-left: 0; }
 [dir="rtl"] .md\:order-2 { order: 1; }
-[dir="rtl"] .-right-3 { right: auto; left: -0.75rem; }
-[dir="rtl"] .right-0 { right: auto; left: 0; }
-[dir="rtl"] .right-4 { right: auto; left: 1rem; }
+[dir="rtl"] .testimonial-quote { right: auto; left: 1rem; }
+[dir="rtl"] .social-badge { right: auto; left: -0.75rem; }
 
 [dir="rtl"] .text-xs { font-size: 0.8125rem; }
 [dir="rtl"] .text-sm { font-size: 0.9375rem; }
