@@ -66,8 +66,8 @@ export function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-[3rem] rotate-6" />
                 <div className="absolute inset-4 bg-white rounded-[2.5rem] shadow-xl border border-border flex items-center justify-center">
                   <div className="text-center p-8">
-                    <div className="mx-auto mb-4">
-                      <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-24 w-auto" />
+                    <div className="flex justify-center mb-4">
+                      <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-28 w-auto" />
                     </div>
                     <h3 className="font-display font-bold text-2xl text-text-primary">Al-Faizoon</h3>
                     <p className="text-text-muted text-sm">Youth Wing Hyderabad</p>
