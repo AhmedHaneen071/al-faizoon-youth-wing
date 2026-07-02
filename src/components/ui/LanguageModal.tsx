@@ -57,7 +57,7 @@ export function LanguageModal({ onComplete }: LanguageModalProps) {
               <button
                 onClick={() => select('ur')}
                 className="px-10 py-4 bg-accent-500 text-white font-display font-bold text-lg rounded-2xl hover:bg-accent-600 transition-colors cursor-pointer shadow-lg shadow-accent-500/20"
-                style={{ fontFamily: "'Noto Nastaliq Urdu', serif" }}
+                style={{ fontFamily: "'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Kasheeda', serif" }}
               >
                 {t('language.urdu')}
               </button>
