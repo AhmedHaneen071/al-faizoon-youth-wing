@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from './Button'
+import logoSvg from '@/Logo-01.svg'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -10,9 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white font-display font-bold">
-                AF
-              </div>
+              <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-14 w-auto" />
               <div>
                 <span className="font-display font-bold text-lg">Al-Faizoon Youth Wing</span>
                 <p className="text-sm text-slate-400">Hyderabad</p>

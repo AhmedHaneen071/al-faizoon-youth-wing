@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import logoSvg from '@/Logo-01.svg'
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -40,9 +41,7 @@ export function Navbar() {
       <nav className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl bg-primary-600 flex items-center justify-center text-white font-display font-bold text-sm group-hover:bg-primary-700 transition-colors">
-              AF
-            </div>
+            <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-14 w-auto" />
             <div className="hidden sm:block">
               <span className="font-display font-bold text-lg text-text-primary">Al-Faizoon</span>
               <span className="block text-xs text-text-muted -mt-1">Youth Wing Hyderabad</span>

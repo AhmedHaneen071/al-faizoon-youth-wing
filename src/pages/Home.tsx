@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { Section, SectionTitle, FadeIn, StaggerFadeIn, StaggerItem } from '@/components/ui/Section'
+import logoSvg from '@/Logo-01.svg'
 import { PillarCard } from '@/components/ui/PillarCard'
 import { TestimonialCard } from '@/components/ui/TestimonialCard'
 import { FeatureCard } from '@/components/ui/FeatureCard'
@@ -65,8 +66,8 @@ export function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-[3rem] rotate-6" />
                 <div className="absolute inset-4 bg-white rounded-[2.5rem] shadow-xl border border-border flex items-center justify-center">
                   <div className="text-center p-8">
-                    <div className="w-20 h-20 rounded-2xl bg-primary-600 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-display font-bold text-3xl">AF</span>
+                    <div className="mx-auto mb-4">
+                      <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-24 w-auto" />
                     </div>
                     <h3 className="font-display font-bold text-2xl text-text-primary">Al-Faizoon</h3>
                     <p className="text-text-muted text-sm">Youth Wing Hyderabad</p>
