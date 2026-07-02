@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import type { Pillar } from '@/models/Pillar'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface PillarCardProps {
   pillar: Pillar
@@ -26,6 +27,7 @@ const iconPaths: Record<string, ReactNode> = {
 }
 
 export function PillarCard({ pillar, expanded = false }: PillarCardProps) {
+  const { t } = useLanguage()
   return (
     <motion.div
       className={`group relative bg-white rounded-2xl border-2 border-border transition-all duration-300 cursor-pointer
@@ -45,7 +47,7 @@ export function PillarCard({ pillar, expanded = false }: PillarCardProps) {
       </div>
 
       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${pillar.getBadgeColor()} border mb-3`}>
-        Pillar {pillar.order}
+        {t('pillarCard.pillar')} {pillar.order}
       </span>
 
       <h3 className="font-display font-bold text-xl text-text-primary mb-1">

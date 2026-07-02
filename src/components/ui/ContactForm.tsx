@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { FormSubmissionService } from '@/services/FormSubmissionService'
 import { NotificationService } from '@/services/NotificationService'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface ContactFormData {
   [key: string]: string | number | boolean | string[]
@@ -15,6 +16,7 @@ interface ContactFormData {
 const initial: ContactFormData = { name: '', email: '', phone: '', subject: '', message: '' }
 
 export function ContactForm() {
+  const { t } = useLanguage()
   const [data, setData] = useState<ContactFormData>(initial)
   const [loading, setLoading] = useState(false)
 
@@ -28,10 +30,10 @@ export function ContactForm() {
     try {
       const formService = FormSubmissionService.getInstance()
       await formService.submit('contact', data)
-      NotificationService.getInstance().success('Message sent successfully! We will get back to you soon.')
+      NotificationService.getInstance().success(t('contact.form.success'))
       setData(initial)
     } catch {
-      NotificationService.getInstance().error('Failed to send message. Please try again.')
+      NotificationService.getInstance().error(t('contact.form.error'))
     } finally {
       setLoading(false)
     }
@@ -49,48 +51,48 @@ export function ContactForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-semibold text-text-primary mb-1.5">Full Name</label>
-          <input type="text" value={data.name} onChange={update('name')} required className={inputCls} placeholder="Your name" />
+          <label className="block text-sm font-semibold text-text-primary mb-1.5">{t('contact.form.nameLabel')}</label>
+          <input type="text" value={data.name} onChange={update('name')} required className={inputCls} placeholder={t('contact.form.namePlaceholder')} />
         </div>
         <div>
-          <label className="block text-sm font-semibold text-text-primary mb-1.5">Email Address</label>
-          <input type="email" value={data.email} onChange={update('email')} required className={inputCls} placeholder="your@email.com" />
+          <label className="block text-sm font-semibold text-text-primary mb-1.5">{t('contact.form.emailLabel')}</label>
+          <input type="email" value={data.email} onChange={update('email')} required className={inputCls} placeholder={t('contact.form.emailPlaceholder')} />
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-semibold text-text-primary mb-1.5">Phone Number</label>
-          <input type="tel" value={data.phone} onChange={update('phone')} className={inputCls} placeholder="+92 XXX XXXXXXX" />
+          <label className="block text-sm font-semibold text-text-primary mb-1.5">{t('contact.form.phoneLabel')}</label>
+          <input type="tel" value={data.phone} onChange={update('phone')} className={inputCls} placeholder={t('contact.form.phonePlaceholder')} />
         </div>
         <div>
-          <label className="block text-sm font-semibold text-text-primary mb-1.5">Subject</label>
+          <label className="block text-sm font-semibold text-text-primary mb-1.5">{t('contact.form.subjectLabel')}</label>
           <select value={data.subject} onChange={update('subject')} required className={inputCls}>
-            <option value="">Select a subject</option>
-            <option value="general">General Inquiry</option>
-            <option value="program">Program Information</option>
-            <option value="partnership">Partnership Opportunity</option>
-            <option value="volunteer">Volunteer Interest</option>
-            <option value="other">Other</option>
+            <option value="">{t('contact.form.subjectPlaceholder')}</option>
+            <option value="general">{t('contact.form.subjectGeneral')}</option>
+            <option value="program">{t('contact.form.subjectProgram')}</option>
+            <option value="partnership">{t('contact.form.subjectPartnership')}</option>
+            <option value="volunteer">{t('contact.form.subjectVolunteer')}</option>
+            <option value="other">{t('contact.form.subjectOther')}</option>
           </select>
         </div>
       </div>
       <div>
-        <label className="block text-sm font-semibold text-text-primary mb-1.5">Message</label>
-        <textarea
-          value={data.message}
-          onChange={update('message')}
-          required
-          rows={5}
-          className={`${inputCls} resize-none`}
-          placeholder="Write your message here..."
-        />
+          <label className="block text-sm font-semibold text-text-primary mb-1.5">{t('contact.form.messageLabel')}</label>
+          <textarea
+            value={data.message}
+            onChange={update('message')}
+            required
+            rows={5}
+            className={`${inputCls} resize-none`}
+            placeholder={t('contact.form.messagePlaceholder')}
+          />
       </div>
       <button
         type="submit"
         disabled={loading}
         className="w-full px-6 py-3.5 bg-primary-600 text-white font-semibold rounded-2xl hover:bg-primary-700 transition-colors disabled:opacity-50 cursor-pointer"
       >
-        {loading ? 'Sending...' : 'Send Message'}
+        {loading ? t('contact.form.submitting') : t('contact.form.submit')}
       </button>
     </motion.form>
   )

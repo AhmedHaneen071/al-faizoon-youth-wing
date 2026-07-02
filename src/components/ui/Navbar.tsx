@@ -2,20 +2,22 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import logoSvg from '@/Logo-01.svg'
+import { useLanguage } from '@/context/LanguageContext'
 
 const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About Us' },
-  { path: '/mission', label: 'Our Mission' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/', labelKey: 'nav.home' },
+  { path: '/about', labelKey: 'nav.about' },
+  { path: '/mission', labelKey: 'nav.mission' },
+  { path: '/contact', labelKey: 'nav.contact' },
 ]
 
 const mobileExtraLinks = [
-  { path: '/social-media-design', label: 'Social Media Design' },
-  { path: '/event-planning', label: 'Event Planning' },
+  { path: '/social-media-design', labelKey: 'nav.socialMediaDesign' },
+  { path: '/event-planning', labelKey: 'nav.eventPlanning' },
 ]
 
 export function Navbar() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
@@ -43,8 +45,8 @@ export function Navbar() {
           <Link to="/" className="flex items-center gap-3 group">
             <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-14 w-auto" />
             <div className="hidden sm:block">
-              <span className="font-display font-bold text-lg text-text-primary">Al-Faizoon</span>
-              <span className="block text-xs text-text-muted -mt-1">Youth Wing Hyderabad</span>
+              <span className="font-display font-bold text-lg text-text-primary">{t('nav.brand')}</span>
+              <span className="block text-xs text-text-muted -mt-1">{t('nav.brandSub')}</span>
             </div>
           </Link>
 
@@ -59,7 +61,7 @@ export function Navbar() {
                     : 'text-text-secondary hover:text-primary-600'
                 }`}
               >
-                {link.label}
+                {t(link.labelKey)}
                 {location.pathname === link.path && (
                   <motion.div
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-600 rounded-full"
@@ -74,7 +76,7 @@ export function Navbar() {
                 onClick={() => setResourcesOpen(!resourcesOpen)}
                 className="font-medium text-sm text-text-secondary hover:text-primary-600 transition-colors cursor-pointer"
               >
-                Resources
+                {t('nav.resources')}
               </button>
               <AnimatePresence>
                 {resourcesOpen && (
@@ -90,7 +92,7 @@ export function Navbar() {
                         to={link.path}
                         className="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-colors"
                       >
-                        {link.label}
+                        {t(link.labelKey)}
                       </Link>
                     ))}
                   </motion.div>
@@ -134,11 +136,11 @@ export function Navbar() {
                       : 'text-text-secondary hover:bg-slate-50'
                   }`}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
               <div className="border-t border-border my-2 pt-2">
-                <p className="px-4 py-2 text-xs font-semibold text-text-muted uppercase tracking-wider">Resources</p>
+                <p className="px-4 py-2 text-xs font-semibold text-text-muted uppercase tracking-wider">{t('nav.resources')}</p>
                 {mobileExtraLinks.map(link => (
                   <Link
                     key={link.path}
@@ -149,7 +151,7 @@ export function Navbar() {
                         : 'text-text-secondary hover:bg-slate-50'
                     }`}
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 ))}
               </div>

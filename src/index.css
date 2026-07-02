@@ -3,6 +3,7 @@
 @theme {
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', serif;
 
   --color-primary-50: #f0fdfa;
   --color-primary-100: #ccfbf1;
@@ -41,6 +42,15 @@ body {
   background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] {
+  font-family: var(--font-urdu), var(--font-sans);
+}
+
+[dir="rtl"] .font-display {
+  font-family: var(--font-urdu), var(--font-display);
 }
 
 ::selection {

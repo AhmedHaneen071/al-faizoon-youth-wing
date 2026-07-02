@@ -2,8 +2,10 @@ import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { FormSubmissionService } from '@/services/FormSubmissionService'
 import { NotificationService } from '@/services/NotificationService'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function NewsletterForm() {
+  const { t } = useLanguage()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [focused, setFocused] = useState(false)
@@ -15,10 +17,10 @@ export function NewsletterForm() {
     try {
       const formService = FormSubmissionService.getInstance()
       await formService.submit('newsletter', { email })
-      NotificationService.getInstance().success('Subscribed successfully! Check your inbox.')
+      NotificationService.getInstance().success(t('newsletter.success'))
       setEmail('')
     } catch {
-      NotificationService.getInstance().error('Something went wrong. Please try again.')
+      NotificationService.getInstance().error(t('newsletter.error'))
     } finally {
       setLoading(false)
     }
@@ -33,7 +35,7 @@ export function NewsletterForm() {
           onChange={e => setEmail(e.target.value)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          placeholder="Enter your email"
+          placeholder={t('newsletter.placeholder')}
           required
           className={`w-full px-5 py-3.5 rounded-2xl border-2 bg-white text-text-primary outline-none transition-all duration-300 text-sm
             ${focused ? 'border-primary-500 shadow-lg shadow-primary-500/10' : 'border-border'}`}
@@ -49,7 +51,7 @@ export function NewsletterForm() {
         disabled={loading}
         className="px-6 py-3.5 bg-primary-600 text-white font-semibold rounded-2xl hover:bg-primary-700 transition-colors disabled:opacity-50 text-sm cursor-pointer"
       >
-        {loading ? 'Subscribing...' : 'Subscribe'}
+        {loading ? t('newsletter.subscribing') : t('newsletter.subscribe')}
       </button>
     </form>
   )

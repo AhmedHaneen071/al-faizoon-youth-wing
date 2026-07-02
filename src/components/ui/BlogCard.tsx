@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import type { BlogPost } from '@/models/BlogPost'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface BlogCardProps {
   post: BlogPost
 }
 
 export function BlogCard({ post }: BlogCardProps) {
+  const { t } = useLanguage()
   return (
     <motion.article
       className="group bg-white rounded-2xl border border-border overflow-hidden hover:border-primary-200 transition-colors"
@@ -24,7 +26,7 @@ export function BlogCard({ post }: BlogCardProps) {
           <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${post.getCategoryBadge()}`}>
             {post.getCategoryLabel()}
           </span>
-          <span className="text-xs text-text-muted">{post.readTime} min read</span>
+            <span className="text-xs text-text-muted">{post.readTime} {t('blogCard.minRead')}</span>
         </div>
         <h3 className="font-display font-bold text-lg text-text-primary mb-2 group-hover:text-primary-600 transition-colors">
           {post.title}
@@ -34,9 +36,9 @@ export function BlogCard({ post }: BlogCardProps) {
         </p>
         <div className="flex items-center justify-between">
           <span className="text-xs text-text-muted">{post.author} &middot; {post.getFormattedDate()}</span>
-          <span className="text-primary-600 text-sm font-semibold group-hover:underline decoration-primary-600 underline-offset-2 transition-all">
-            Read More
-          </span>
+            <span className="text-primary-600 text-sm font-semibold group-hover:underline decoration-primary-600 underline-offset-2 transition-all">
+              {t('blogCard.readMore')}
+            </span>
         </div>
       </div>
     </motion.article>

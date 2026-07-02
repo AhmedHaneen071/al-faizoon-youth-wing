@@ -2,40 +2,41 @@ import { PageHero } from '@/components/layout/PageHero'
 import { Section, FadeIn } from '@/components/ui/Section'
 import { ContactForm } from '@/components/ui/ContactForm'
 import { VolunteerForm } from '@/components/ui/VolunteerForm'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function Contact() {
+  const { t } = useLanguage()
   return (
     <>
       <PageHero
-        title="Get in Touch"
-        subtitle="Have questions, want to partner, or interested in joining? We'd love to hear from you."
-        badge="Contact Us"
+        title={t('contact.hero.title')}
+        subtitle={t('contact.hero.subtitle')}
+        badge={t('contact.hero.badge')}
       />
 
-      {/* Contact Details Grid */}
       <Section>
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {[
             {
-              title: 'WhatsApp',
+              titleKey: 'contact.cards.whatsapp.title',
               value: '+92 325 3019374',
-              desc: 'Quickest way to reach us',
+              descKey: 'contact.cards.whatsapp.desc',
               href: 'https://wa.me/923253019374',
               icon: 'chat',
               color: 'bg-emerald-100 text-emerald-600',
             },
             {
-              title: 'Email',
+              titleKey: 'contact.cards.email.title',
               value: 'info.alfaizoonyouthwing@gmail.com',
-              desc: 'For formal inquiries',
+              descKey: 'contact.cards.email.desc',
               href: 'mailto:info.alfaizoonyouthwing@gmail.com',
               icon: 'mail',
               color: 'bg-primary-100 text-primary-600',
             },
             {
-              title: 'Headquarters',
-              value: 'Hyderabad, Sindh',
-              desc: 'Pakistan',
+              titleKey: 'contact.cards.headquarters.title',
+              value: t('contact.cards.headquarters.value'),
+              descKey: 'contact.cards.headquarters.desc',
               icon: 'location',
               color: 'bg-amber-100 text-amber-600',
             },
@@ -60,7 +61,7 @@ export function Contact() {
                     </svg>
                   )}
                 </div>
-                <h3 className="font-display font-semibold text-lg text-text-primary">{item.title}</h3>
+                <h3 className="font-display font-semibold text-lg text-text-primary">{t(item.titleKey)}</h3>
                 {item.href ? (
                   <a href={item.href} className="text-primary-600 hover:text-primary-700 font-medium text-sm block mt-1" target="_blank" rel="noopener noreferrer">
                     {item.value}
@@ -68,23 +69,22 @@ export function Contact() {
                 ) : (
                   <p className="text-text-secondary font-medium text-sm mt-1">{item.value}</p>
                 )}
-                <p className="text-text-muted text-xs mt-1">{item.desc}</p>
+                <p className="text-text-muted text-xs mt-1">{t(item.descKey)}</p>
               </div>
             </FadeIn>
           ))}
         </div>
       </Section>
 
-      {/* Contact Form & Volunteer Form */}
       <Section className="bg-gradient-to-br from-primary-50 to-white">
         <div className="grid lg:grid-cols-2 gap-12">
           <FadeIn>
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary mb-2">
-                Send Us a Message
+                {t('contact.form.title')}
               </h2>
               <p className="text-text-secondary mb-6">
-                Have a question or want to learn more about our programs? Fill out the form and we'll get back to you.
+                {t('contact.form.description')}
               </p>
               <ContactForm />
             </div>
@@ -93,10 +93,10 @@ export function Contact() {
           <FadeIn delay={0.15}>
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary mb-2">
-                Volunteer with Us
+                {t('contact.volunteer.title')}
               </h2>
               <p className="text-text-secondary mb-6">
-                Ready to make a difference? Apply to become a volunteer and join the Al-Faizoon family.
+                {t('contact.volunteer.description')}
               </p>
               <div className="bg-white rounded-3xl border border-border p-6 md:p-8">
                 <VolunteerForm />
@@ -106,27 +106,20 @@ export function Contact() {
         </div>
       </Section>
 
-      {/* Location / Map */}
       <Section>
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary text-center mb-2">
-              Our Location
+              {t('contact.location.title')}
             </h2>
             <p className="text-text-secondary text-center mb-8">
-              We are based in Hyderabad, Sindh — serving neighborhoods across the city.
+              {t('contact.location.description')}
             </p>
             <div className="bg-white rounded-3xl border border-border overflow-hidden">
               <div className="h-64 md:h-80 bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-primary-600 flex items-center justify-center mx-auto mb-3">
-                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <p className="font-display font-bold text-xl text-text-primary">Hyderabad, Sindh, Pakistan</p>
-                  <p className="text-text-muted mt-1">Main Office: Latifabad Unit #6, Hyderabad</p>
+                  <p className="font-display font-bold text-xl text-text-primary">{t('contact.location.name')}</p>
+                  <p className="text-text-muted mt-1">{t('contact.location.address')}</p>
                 </div>
               </div>
             </div>

@@ -2,8 +2,10 @@ import { PageHero } from '@/components/layout/PageHero'
 import { Section, SectionTitle, FadeIn, StaggerFadeIn, StaggerItem } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { ContentRepositoryService } from '@/services/ContentRepositoryService'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function SocialMediaDesign() {
+  const { t } = useLanguage()
   const repo = ContentRepositoryService.getInstance()
   const posts = repo.getSocialMediaPosts()
   const steps = repo.getContentWorkflowSteps()
@@ -11,16 +13,15 @@ export function SocialMediaDesign() {
   return (
     <>
       <PageHero
-        title="Social Media Post Design"
-        subtitle="Our brand content engine — creating impactful, values-driven social media content that inspires and informs."
-        badge="Operations"
+        title={t('socialMedia.hero.title')}
+        subtitle={t('socialMedia.hero.subtitle')}
+        badge={t('socialMedia.hero.badge')}
       />
 
-      {/* Categories */}
       <Section>
         <SectionTitle
-          title="Content Categories"
-          subtitle="Our social media content falls into three distinct categories, each serving a unique purpose."
+          title={t('socialMedia.categories.title')}
+          subtitle={t('socialMedia.categories.subtitle')}
         />
         <StaggerFadeIn className="grid md:grid-cols-3 gap-6 md:gap-8">
           {posts.map(post => (
@@ -44,11 +45,10 @@ export function SocialMediaDesign() {
         </StaggerFadeIn>
       </Section>
 
-      {/* Workflow */}
       <Section className="bg-gradient-to-br from-primary-50 to-white">
         <SectionTitle
-          title="Content Submission Workflow"
-          subtitle="A streamlined process ensuring every piece of content aligns with our pillars and brand identity."
+          title={t('socialMedia.workflow.title')}
+          subtitle={t('socialMedia.workflow.subtitle')}
         />
         <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, i) => (
@@ -81,18 +81,17 @@ export function SocialMediaDesign() {
         </div>
       </Section>
 
-      {/* CTA */}
       <Section>
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center bg-white rounded-3xl border border-border p-10 md:p-14 shadow-sm">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-3">
-              Contribute Your Content
+              {t('socialMedia.cta.title')}
             </h2>
             <p className="text-text-secondary text-lg mb-8">
-              Have an idea for a post? Share it with us on WhatsApp and help amplify our message.
+              {t('socialMedia.cta.description')}
             </p>
             <Button href="https://wa.me/923253019374" external variant="accent" size="lg">
-              Submit on WhatsApp
+              {t('socialMedia.cta.button')}
             </Button>
           </div>
         </FadeIn>

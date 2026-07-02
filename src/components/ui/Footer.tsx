@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Button } from './Button'
 import logoSvg from '@/Logo-01.svg'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -13,12 +15,12 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img src={logoSvg} alt="Al-Faizoon Youth Wing" className="h-14 w-auto" />
               <div>
-                <span className="font-display font-bold text-lg">Al-Faizoon Youth Wing</span>
-                <p className="text-sm text-slate-400">Hyderabad</p>
+                <span className="font-display font-bold text-lg">{t('footer.brand')}</span>
+                <p className="text-sm text-slate-400">{t('footer.brandSub')}</p>
               </div>
             </div>
             <p className="text-slate-400 max-w-md leading-relaxed">
-              Grooming triumphant youth for Deen & Society. Empowering the next generation of Muslim leaders through faith-based character development, community service, and mentorship.
+              {t('footer.description')}
             </p>
             <div className="flex gap-3 mt-6">
               <a
@@ -41,17 +43,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display font-semibold text-sm text-slate-300 uppercase tracking-wider mb-4">Pages</h3>
+            <h3 className="font-display font-semibold text-sm text-slate-300 uppercase tracking-wider mb-4">{t('footer.pages')}</h3>
             <ul className="space-y-3">
               {[
-                { label: 'Home', path: '/' },
-                { label: 'About Us', path: '/about' },
-                { label: 'Our Mission', path: '/mission' },
-                { label: 'Contact', path: '/contact' },
+                { labelKey: 'nav.home', path: '/' },
+                { labelKey: 'nav.about', path: '/about' },
+                { labelKey: 'nav.mission', path: '/mission' },
+                { labelKey: 'nav.contact', path: '/contact' },
               ].map(link => (
                 <li key={link.path}>
                   <Link to={link.path} className="text-slate-400 hover:text-white transition-colors text-sm">
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -59,22 +61,22 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display font-semibold text-sm text-slate-300 uppercase tracking-wider mb-4">Resources</h3>
+            <h3 className="font-display font-semibold text-sm text-slate-300 uppercase tracking-wider mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-3">
               {[
-                { label: 'Social Media Design', path: '/social-media-design' },
-                { label: 'Event Planning', path: '/event-planning' },
+                { labelKey: 'nav.socialMediaDesign', path: '/social-media-design' },
+                { labelKey: 'nav.eventPlanning', path: '/event-planning' },
               ].map(link => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-slate-400 hover:text-white transition-colors text-sm">
-                    {link.label}
+                  <Link to={link.path} className="text-slate-400 hover-white transition-colors text-sm">
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
             </ul>
             <div className="mt-6">
               <Button href="https://wa.me/923253019374" external variant="accent" size="sm">
-                Join on WhatsApp
+                {t('footer.joinWhatsApp')}
               </Button>
             </div>
           </div>
@@ -82,10 +84,10 @@ export function Footer() {
 
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm">
-            &copy; {currentYear} Al-Faizoon Youth Wing Hyderabad. All rights reserved.
+            &copy; {currentYear} {t('footer.copyright')}
           </p>
           <p className="text-slate-600 text-xs">
-            Grooming Triumphant Youth for Deen & Society
+            {t('footer.tagline')}
           </p>
         </div>
       </div>

@@ -2,71 +2,34 @@ import { PageHero } from '@/components/layout/PageHero'
 import { Section, SectionTitle, FadeIn } from '@/components/ui/Section'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { NewsletterForm } from '@/components/ui/NewsletterForm'
-
-const faqItems = [
-  {
-    question: 'How do I propose a new event idea?',
-    answer: 'Share your event idea through our WhatsApp group or contact any leadership team member. Your idea will be reviewed during our weekly planning meeting. We welcome all suggestions that align with our mission and pillars.',
-  },
-  {
-    question: 'What types of events does Al-Faizoon organize?',
-    answer: 'We organize community clean-ups, free health camps, Dawah sessions, youth workshops, study circles, sports events, fundraising drives, and social gatherings. Each event is designed to serve our dual mission of Islamic outreach and community service.',
-  },
-  {
-    question: 'Who can participate in events?',
-    answer: 'All events are open to youth (ages 12–35) from Hyderabad and surrounding areas. Some events may have specific age or registration requirements, which will be clearly communicated in advance.',
-  },
-  {
-    question: 'How are events funded?',
-    answer: 'Events are funded through member contributions, community donations, and partnerships with local businesses and organizations. We maintain full transparency on all financial matters.',
-  },
-  {
-    question: 'Can I volunteer to help organize events?',
-    answer: 'Absolutely! We are always looking for dedicated volunteers to help with event planning, logistics, promotion, and execution. Fill out the volunteer form on our Contact page to get involved.',
-  },
-]
-
-const eventTypes = [
-  {
-    title: 'Community Clean-Ups',
-    description: 'Organized drives to clean and beautify public spaces, parks, and neighborhoods across Hyderabad.',
-    icon: 'sparkles',
-    color: 'bg-emerald-100 text-emerald-600',
-  },
-  {
-    title: 'Health & Medical Camps',
-    description: 'Free health checkup camps in partnership with local doctors and healthcare professionals serving underserved areas.',
-    icon: 'heart',
-    color: 'bg-rose-100 text-rose-600',
-  },
-  {
-    title: 'Dawah & Islamic Sessions',
-    description: 'Open sessions, study circles, and events designed to share Islamic knowledge and build spiritual connection.',
-    icon: 'book',
-    color: 'bg-primary-100 text-primary-600',
-  },
-  {
-    title: 'Youth Workshops',
-    description: 'Skill-building workshops covering leadership, public speaking, team management, and personal development.',
-    icon: 'lightbulb',
-    color: 'bg-amber-100 text-amber-600',
-  },
-]
+import { useLanguage } from '@/context/LanguageContext'
 
 export function EventPlanning() {
+  const { t } = useLanguage()
+
+  const faqItems = Array.from({ length: 5 }, (_, i) => ({
+    question: t(`eventPlanning.faq.items.${i}.question`),
+    answer: t(`eventPlanning.faq.items.${i}.answer`),
+  }))
+
+  const eventTypes = Array.from({ length: 4 }, (_, i) => ({
+    title: t(`eventPlanning.categories.items.${i}.title`),
+    description: t(`eventPlanning.categories.items.${i}.description`),
+    icon: ['sparkles', 'heart', 'book', 'lightbulb'][i],
+    color: ['bg-emerald-100 text-emerald-600', 'bg-rose-100 text-rose-600', 'bg-primary-100 text-primary-600', 'bg-amber-100 text-amber-600'][i],
+  }))
   return (
     <>
       <PageHero
-        title="Community Event Planning"
-        subtitle="How Al-Faizoon coordinates impactful social work — from idea to execution, every step is intentional."
-        badge="Operations"
+        title={t('eventPlanning.hero.title')}
+        subtitle={t('eventPlanning.hero.subtitle')}
+        badge={t('eventPlanning.hero.badge')}
       />
 
-      {/* Event Types */}
       <Section>
         <SectionTitle
-          title="Our Event Categories"
-          subtitle="We organize a diverse range of events that serve our community and fulfill our mission."
+          title={t('eventPlanning.categories.title')}
+          subtitle={t('eventPlanning.categories.subtitle')}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {eventTypes.map((event, i) => (
@@ -96,21 +59,18 @@ export function EventPlanning() {
         </div>
       </Section>
 
-      {/* Event Flow */}
       <Section className="bg-gradient-to-br from-primary-50 to-white">
         <SectionTitle
-          title="From Idea to Impact"
-          subtitle="Every event follows a proven framework to ensure meaningful community impact."
+          title={t('eventPlanning.flow.title')}
+          subtitle={t('eventPlanning.flow.subtitle')}
         />
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
-            {[
-              { step: '01', title: 'Idea Submission', desc: 'Any member can submit an event idea aligned with our mission and pillars.' },
-              { step: '02', title: 'Planning & Approval', desc: 'The leadership team reviews the proposal, allocates resources, and sets a timeline.' },
-              { step: '03', title: 'Team Formation', desc: 'Volunteers are organized into committees for logistics, promotion, and execution.' },
-              { step: '04', title: 'Execution', desc: 'The event is carried out with full coordination, community engagement, and Islamic values.' },
-              { step: '05', title: 'Review & Report', desc: 'A post-event review captures lessons learned, impact metrics, and community feedback.' },
-            ].map((item, i) => (
+            {Array.from({ length: 5 }, (_, i) => ({
+              step: `0${i + 1}`,
+              title: t(`eventPlanning.flow.steps.${i}.title`),
+              desc: t(`eventPlanning.flow.steps.${i}.desc`),
+            })).map((item, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="flex items-start gap-5 bg-white rounded-2xl border border-border p-6">
                   <div className="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center font-display font-bold text-lg flex-shrink-0">
@@ -127,26 +87,24 @@ export function EventPlanning() {
         </div>
       </Section>
 
-      {/* FAQ */}
       <Section>
         <SectionTitle
-          title="Event FAQ"
-          subtitle="Common questions about event planning, participation, and volunteering."
+          title={t('eventPlanning.faq.title')}
+          subtitle={t('eventPlanning.faq.subtitle')}
         />
         <div className="max-w-3xl mx-auto">
           <FAQAccordion items={faqItems} />
         </div>
       </Section>
 
-      {/* Newsletter */}
       <Section className="bg-gradient-to-br from-primary-50 to-white">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-3">
-              Stay Updated on Events
+              {t('eventPlanning.newsletter.title')}
             </h2>
             <p className="text-text-secondary mb-8">
-              Subscribe to receive notifications about upcoming events, volunteer opportunities, and community initiatives.
+              {t('eventPlanning.newsletter.description')}
             </p>
             <NewsletterForm />
           </div>

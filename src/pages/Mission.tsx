@@ -1,36 +1,36 @@
 import { PageHero } from '@/components/layout/PageHero'
 import { Section, SectionTitle, FadeIn, StaggerFadeIn, StaggerItem } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { Timeline, missionTimelineSteps } from '@/components/ui/Timeline'
+import { Timeline } from '@/components/ui/Timeline'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function Mission() {
+  const { t } = useLanguage()
   return (
     <>
       <PageHero
-        title="Our Mission – The Heart of Al-Faizoon"
-        subtitle="Building triumphant youth through faith, character, and community action. Our mission is the driving force behind everything we do."
-        badge="Our Mission"
+        title={t('mission.hero.title')}
+        subtitle={t('mission.hero.subtitle')}
+        badge={t('mission.hero.badge')}
       />
 
-      {/* Header Card */}
       <Section>
         <FadeIn>
           <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-10 md:p-14 text-white text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Grooming Triumphant Youth for Deen &amp; Society
+              {t('mission.header.title')}
             </h2>
             <p className="text-primary-100 text-lg max-w-3xl mx-auto leading-relaxed">
-              We are on a mission to nurture a generation of young Muslims who are deeply rooted in Islamic values, confident in their identity, and actively contributing to the betterment of their communities.
+              {t('mission.header.description')}
             </p>
           </div>
         </FadeIn>
       </Section>
 
-      {/* Dual Mission Tracks */}
       <Section>
         <SectionTitle
-          title="Our Dual Operational Tracks"
-          subtitle="We pursue our mission through two complementary tracks that address both spiritual and societal needs."
+          title={t('mission.tracks.title')}
+          subtitle={t('mission.tracks.subtitle')}
         />
         <div className="grid md:grid-cols-2 gap-8">
           <FadeIn>
@@ -41,18 +41,13 @@ export function Mission() {
                 </svg>
               </div>
               <h3 className="font-display font-bold text-2xl text-text-primary mb-3">
-                Dawah (Islamic Outreach)
+                {t('mission.tracks.dawah.title')}
               </h3>
               <p className="text-text-secondary leading-relaxed mb-4">
-                We share the beauty of Islam through compassionate dialogue, study circles, and community events. Our Dawah initiatives focus on presenting Islamic teachings in a relevant, accessible manner that resonates with youth and the broader community.
+                {t('mission.tracks.dawah.description')}
               </p>
               <ul className="space-y-2">
-                {[
-                  'Weekly Quran & Hadith study circles',
-                  'Open mosque events and Q&A sessions',
-                  'Islamic character-building workshops',
-                  'Digital Dawah through social media content',
-                ].map((item, i) => (
+                {t('mission.tracks.dawah.items').split('|').map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
                     <svg className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -72,18 +67,13 @@ export function Mission() {
                 </svg>
               </div>
               <h3 className="font-display font-bold text-2xl text-text-primary mb-3">
-                Community Service (Solving Societal Issues)
+                {t('mission.tracks.community.title')}
               </h3>
               <p className="text-text-secondary leading-relaxed mb-4">
-                We identify pressing local challenges and mobilize youth to create tangible solutions. From health camps to environmental clean-ups, our service projects address real needs in Hyderabad communities.
+                {t('mission.tracks.community.description')}
               </p>
               <ul className="space-y-2">
-                {[
-                  'Free health & medical camps',
-                  'Neighborhood clean-up & greening drives',
-                  'Educational support for underprivileged children',
-                  'Disaster relief and humanitarian aid',
-                ].map((item, i) => (
+                {t('mission.tracks.community.items').split('|').map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
                     <svg className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -97,38 +87,41 @@ export function Mission() {
         </div>
       </Section>
 
-      {/* How It Works Timeline */}
       <Section className="bg-gradient-to-br from-primary-50 to-white">
         <SectionTitle
-          title="How It Works"
-          subtitle="Our implementation framework — how we turn mission into meaningful action."
+          title={t('mission.timeline.title')}
+          subtitle={t('mission.timeline.subtitle')}
         />
-        <Timeline steps={missionTimelineSteps} />
+        <Timeline steps={Array.from({ length: 4 }, (_, i) => ({
+          number: i + 1,
+          title: t(`mission.timeline.steps.${i}.title`),
+          description: t(`mission.timeline.steps.${i}.description`),
+          icon: ['search', 'book', 'users', 'chart'][i],
+        }))} />
       </Section>
 
-      {/* Benefits */}
       <Section>
         <SectionTitle
-          title="Why It Matters"
-          subtitle="Embodying these values creates a ripple effect that benefits individuals, families, and the entire community."
+          title={t('mission.benefits.title')}
+          subtitle={t('mission.benefits.subtitle')}
         />
         <StaggerFadeIn className="grid md:grid-cols-3 gap-6">
           {[
             {
-              title: 'Personal Growth',
-              description: 'Youth develop confidence, leadership skills, and a strong moral compass guided by Islamic principles that serve them for life.',
+              titleKey: 'mission.benefits.items.0.title',
+              descKey: 'mission.benefits.items.0.description',
               icon: 'user',
               color: 'text-emerald-600 bg-emerald-50',
             },
             {
-              title: 'Family Strengthening',
-              description: 'Well-grounded youth become sources of pride and stability for their families, fostering stronger household bonds and mutual respect.',
+              titleKey: 'mission.benefits.items.1.title',
+              descKey: 'mission.benefits.items.1.description',
               icon: 'home',
               color: 'text-teal-600 bg-teal-50',
             },
             {
-              title: 'Social Harmony',
-              description: 'Community service and interfaith engagement build bridges, reduce social tensions, and create a more cohesive Hyderabad society.',
+              titleKey: 'mission.benefits.items.2.title',
+              descKey: 'mission.benefits.items.2.description',
               icon: 'globe',
               color: 'text-amber-600 bg-amber-50',
             },
@@ -148,30 +141,29 @@ export function Mission() {
                     )}
                   </svg>
                 </div>
-                <h3 className="font-display font-bold text-xl text-text-primary mb-3">{benefit.title}</h3>
-                <p className="text-text-secondary leading-relaxed">{benefit.description}</p>
+                <h3 className="font-display font-bold text-xl text-text-primary mb-3">{t(benefit.titleKey)}</h3>
+                <p className="text-text-secondary leading-relaxed">{t(benefit.descKey)}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerFadeIn>
       </Section>
 
-      {/* Recruitment CTA */}
       <Section className="bg-gradient-to-br from-primary-600 to-primary-800">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Be Part of a New Generation
+              {t('mission.cta.title')}
             </h2>
             <p className="text-primary-100 text-lg mb-8 leading-relaxed">
-              Join the movement of triumphant youth. Connect with Al-Faizoon today and start your journey of faith, service, and leadership.
+              {t('mission.cta.description')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button href="https://wa.me/923253019374" external variant="accent" size="lg">
-                Join Us on WhatsApp
+                {t('mission.cta.joinBtn')}
               </Button>
               <Button to="/contact" variant="secondary" size="lg">
-                Get in Touch
+                {t('mission.cta.contactBtn')}
               </Button>
             </div>
           </div>
