@@ -1,0 +1,58 @@
+import { Testimonial } from '@/models/Testimonial'
+
+export const testimonials: Testimonial[] = [
+  new Testimonial(
+    '1',
+    'Omar Farooq',
+    'Youth Member',
+    'member',
+    'Al-Faizoon transformed my perspective on faith and community. The mentorship programs helped me develop leadership skills I never knew I had. I am proud to be part of this triumphant youth movement.',
+    '',
+    true,
+  ),
+  new Testimonial(
+    '2',
+    'Mrs. Kulsoom Ahmed',
+    'Parent',
+    'parent',
+    'As a parent, I have seen remarkable growth in my son since he joined Al-Faizoon. The organization provides a safe, nurturing environment rooted in Islamic values that shapes responsible young adults.',
+    '',
+    false,
+  ),
+  new Testimonial(
+    '3',
+    'Dr. Rashid Mahmood',
+    'Community Partner',
+    'partner',
+    'Al-Faizoon Youth Wing is a shining example of what organized youth can achieve. Their community service initiatives have made measurable impacts across Hyderabad. An honor to collaborate with them.',
+    '',
+    true,
+  ),
+  new Testimonial(
+    '4',
+    'Hina Tariq',
+    'Volunteer',
+    'volunteer',
+    'Volunteering with Al-Faizoon has been an incredibly rewarding experience. The sense of purpose and brotherhood/sisterhood is unmatched. Every event teaches something new about service and faith.',
+    '',
+    false,
+  ),
+  new Testimonial(
+    '5',
+    'Bilal Ahmed Sheikh',
+    'Youth Member',
+    'member',
+    'The 5 Pillars framework at Al-Faizoon isn\'t just theory—it\'s practiced daily. I\'ve learned what it truly means to be Amanat (trustworthy) and Sadaqat (truthful) in real-life situations.',
+    '',
+    true,
+  ),
+  new Testimonial(
+    '6',
+    'Prof. Saima Rafiq',
+    'Community Partner',
+    'partner',
+    'The dedication of Al-Faizoon youth is remarkable. Their neighborhood programs have brought positive change, and their approach to blending Islamic character with community service is truly unique.',
+    '',
+    false,
+  ),
+]
